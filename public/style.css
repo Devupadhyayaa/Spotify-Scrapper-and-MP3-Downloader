@@ -1,0 +1,106 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: "Protest Riot", sans-serif;
+    /* font-weight: 400; */
+    font-style: normal;
+}
+body{
+    background-color: black;
+}
+.login{
+    margin: 100px auto 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    height: 440px;
+    background-color: #202020;
+    padding: 30px;
+    border-radius: 30px;
+    gap: 15px;
+}
+.login h1{
+    font-size: 34px;
+    font-weight: bolder;
+    margin-bottom: 30px;
+    color: #1ed760;
+}
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.username{
+    width: 60%;
+    padding: 5px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.login span{
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.login input{
+    padding: 7px;
+    background-color: #838383;
+    text-decoration: none;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid white;
+}
+input[type="text"] {
+    font-size:13px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #000000;
+    font-weight: 700;
+}
+input[type="password"] {
+    font-size:13px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #000000;
+    font-weight: 700;
+}
+.password{
+    width: 60%;
+    padding: 5px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.submit{
+    padding: 10px;
+    width: 33%;
+    background-color: rgb(186, 186, 186);
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    color: #000000;
+    font-size: 24px;
+    margin-top: 23px;
+}
+.submit:hover{
+    background-color: #1ed760;
+}
+@media only screen and (max-width:450px){
+    .login h1{
+        font-size: 24px;
+    }
+    .login{
+        margin: 150px auto 20px;
+        width: 70vw;
+    }
+    .login span{
+        font-size: 15px;
+    }
+}

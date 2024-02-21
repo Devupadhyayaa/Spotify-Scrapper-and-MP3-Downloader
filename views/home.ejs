@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <div class="message">
+        <h2>We are Looking for your playlist, just wait for a moment</h2>
+        <div class="loader"></div>
+    </div>
+    <div class="container">
+        <h1>Your Top Liked Songs On Spotify</h1>
+        </div>
+    </div>
+    <script> 
+        (async()=>{
+            document.querySelector('.container').style.display="none";
+            const val = await fetch('/api/user',{method:"POST"})
+            const res = await val.json();
+            document.querySelector('.message').style.display="none";
+            document.querySelector('.container').style.display="block";
+            let i=1;
+            res.tracknames.forEach(track => {
+                const row = document.createElement('div');
+                row.classList.add('row');
+                document.querySelector('.container').appendChild(row);
+
+                const number = document.createElement('div');
+                number.classList.add('number');
+                number.innerHTML=`<h3>${i}</h3>`;
+                row.appendChild(number);
+
+                const content = document.createElement('div');
+                content.classList.add('content');
+                const p = document.createElement('p');
+                p.innerHTML=track.trackName;
+                content.appendChild(p);
+                row.appendChild(content);
+
+                const yt = document.createElement('div');
+                yt.classList.add('yt');
+                const a = document.createElement('a');
+                a.classList.add('btn');
+                a.innerHTML="YT";
+                a.target='_blank';
+                yt.appendChild(a);
+                row.appendChild(yt);
+
+                const dwnld = document.createElement('div');
+                dwnld.classList.add('dwnld');
+                const button = document.createElement('button');
+                button.classList.add('btn2');
+                const image = document.createElement('img');
+                image.src="images/down.svg";
+                button.appendChild(image);
+                dwnld.appendChild(button);
+                row.appendChild(dwnld);
+
+                i++;
+            });
+            const urls = res.urls;
+            for(let j=0;j<i-1;j++){
+                const box = document.querySelectorAll('.yt')[j];
+                box.querySelector('.btn').href=urls[j];
+            }
+
+            for(let k=0;k<i-1;k++){
+                const dbtn = document.querySelectorAll('.dwnld')[k];
+                dbtn.querySelector('.btn2').addEventListener('click',async()=>{
+                    const resp = await fetch('/api/songs',
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({url:urls[k]})
+                    });
+                    const result = await resp.json();
+                    console.log(result);
+                    const link = result.link;
+                    window.open(link, '_blank');
+                })
+            }
+        })();
+    </script>
+</body>
+</html>
