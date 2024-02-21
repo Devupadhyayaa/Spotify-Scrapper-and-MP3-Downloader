@@ -2,7 +2,7 @@
   "name": "playit",
   "version": "1.0.0",
   "description": "spotify playlist saving app",
-  "main": "index.js",
+  "main": "script.js",
   "directories": {
     "test": "test"
   },
