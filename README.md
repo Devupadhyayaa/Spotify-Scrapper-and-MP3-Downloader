@@ -25,7 +25,7 @@
 
 2. **Run the Application:**
    - Execute the script by running `node script.js`.
-   - Access the user-friendly UI through your preferred web browser by visiting the local host you can adjust the port in the script.js.
+   - Access the user-friendly UI through your preferred web browser by visiting the local host, you can adjust the port in the script.js.
    - Follow the on-screen instructions to initiate the desired actions.
 
 ## Important Notes
